@@ -3,7 +3,7 @@ import { HeaderWrapper, HeaderNavBar } from './style'
 import { Link, useLocation } from 'react-router-dom'
 import CannelBar from '@/components/CannelBar'
 import download from '@/assets/images/common/navOpenApp.png'
-import face from '@/assets/images/common/face.png'
+import face from '@/assets/images/common/face.webp'
 
 function BiliHeader () {
   const { pathname } = useLocation()

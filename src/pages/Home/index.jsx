@@ -1,8 +1,11 @@
+import VideoListBox from "@/components/VideoListBox"
+import { HomeWrapper } from './style.js'
+
 function Home () {
   return (
-    <div style={{ position: 'relative', top: '100px' }}>
-      Home
-    </div>
+    <HomeWrapper>
+      <VideoListBox />
+    </HomeWrapper>
   )
 }
 

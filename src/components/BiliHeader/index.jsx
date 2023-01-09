@@ -1,12 +1,13 @@
 import { memo } from 'react'
 import { HeaderWrapper, HeaderNavBar } from './style'
 import { Link, useLocation } from 'react-router-dom'
+import CannelBar from '@/components/CannelBar'
 import download from '@/assets/images/common/navOpenApp.png'
 import face from '@/assets/images/common/face.png'
 
 function BiliHeader () {
   const { pathname } = useLocation()
-  if (pathname == '/search') {
+  if (pathname === '/search') {
     return
   }
 
@@ -15,9 +16,8 @@ function BiliHeader () {
       <HeaderNavBar className='m-navbar'>
         <Link to="/home" className="logo"><i className="iconfont Navbar_logo"></i></Link>
         <div className="right">
-          <Link to="/search" className="search">
-            <i className="iconfont ic_search_tab">
-            </i>
+          <Link to="/infosearch" className="search">
+            <i className="iconfont ic_search_tab"></i>
           </Link>
           <Link to="/space" className="face">
             <img className="bfs-img" src={face} />
@@ -27,7 +27,7 @@ function BiliHeader () {
           </div>
         </div>
       </HeaderNavBar>
-      {/* <CannelBar /> */}
+      <CannelBar />
     </HeaderWrapper>
   )
 }

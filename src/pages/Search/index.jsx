@@ -1,9 +1,9 @@
-function Animation () {
+function Search () {
   return (
     <div style={{ position: 'relative', top: '100px' }}>
-      Animation
+      Search
     </div>
   )
 }
 
-export default Animation
+export default Search

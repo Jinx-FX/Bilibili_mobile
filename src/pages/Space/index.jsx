@@ -1,9 +1,9 @@
-function Animation () {
+function Space () {
   return (
     <div style={{ position: 'relative', top: '100px' }}>
-      Animation
+      Space
     </div>
   )
 }
 
-export default Animation
+export default Space

@@ -2,7 +2,8 @@
 import axios from 'axios'
 // 本地调试 dev 开发阶段
 // 切换 baseUrl 到 produce 上线阶段 api
-export const baseUrl = 'https://www.fastmock.site/mock/c4ece9fff3bb5ad98093439f16f136be/bLike'
+export const baseUrl =
+  'https://www.fastmock.site/mock/c4ece9fff3bb5ad98093439f16f136be/bLike'
 
 // axios.creat 直接给出的 配置请求对象 返回单例
 // 单例模式 返回一个唯一的 axios 实例 

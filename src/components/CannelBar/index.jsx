@@ -5,6 +5,7 @@ import classnames from 'classnames'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { HeaderMenu, DropdownWrapper, DrawerWrapper } from './style'
 import { memo, useEffect, useRef, useState } from 'react'
+import ChildCannel from './ChildCannel'
 
 
 function CannelBar () {
@@ -21,14 +22,14 @@ function CannelBar () {
     }
     const cannelItems = () => {
       return (
-        <Tabs>
+        <Tabs activeKey={pathname.match(/^\/\w+/)}>
           {CannelData.map(item => {
             // NavLink 会给所选路由加个active，以便所选路由可视化
             return (<Tabs.Tab
               title={
                 <NavLink
                   to={item.cannelname}
-                  className={classnames({ active: pathname === item.cannelname })}
+                  className={classnames({ active: pathname.includes(item.cannelname) })}
                 >
                   <span>{item.ctitle}</span>
                 </NavLink>}
@@ -76,7 +77,7 @@ function CannelBar () {
         </DropdownWrapper>
       </HeaderMenu>
       {/* 二级路由 */}
-      {/* <ChildCannel /> */}
+      <ChildCannel />
     </>
   )
 }

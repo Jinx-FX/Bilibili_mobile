@@ -23,7 +23,7 @@ export const NumberFormat = (number) => {
 * @return boolean 
 */
 export const isPathPartlyExisted = (path) => {
-  const arr = ['/shouye']
+  const arr = ['/home']
   // 任何情况下 结果数组的第二项都是arr里的匹配项 return true
   const pathRes = path.split('/')
   if (pathRes[1] && arr.indexOf(`/${pathRes[1]}`) != -1) return true

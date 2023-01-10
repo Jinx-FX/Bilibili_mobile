@@ -1,8 +1,11 @@
+import { Wrapper } from './style'
+
 function Animation () {
   return (
-    <div style={{ position: 'relative', top: '100px' }}>
+    <Wrapper>
+      {/* <Outlet /> */}
       Animation
-    </div>
+    </Wrapper >
   )
 }
 

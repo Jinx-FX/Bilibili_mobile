@@ -11,8 +11,15 @@ import ChildCannel from './ChildCannel'
 function CannelBar () {
   const { pathname } = useLocation()
   const [items, setItems] = useState([])
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
   const ref = useRef(null)
+  useEffect(() => {
+    if (pathname === '/space')
+      setLoading(false)
+    else
+      setLoading(true)
+  }, [pathname])
   useEffect(() => {
     if (CannelData.find(ele => ele.cannelname === pathname) && pathname !== '/home') {
       if (/^\/\w+$/.test(pathname) || /^\/\w+\/$/.test(pathname)) {
@@ -48,41 +55,45 @@ function CannelBar () {
   }, [pathname])
   return (
     <>
-      <HeaderMenu>
-        {items}
-        <DropdownWrapper>
-          <Dropdown arrow={<DownOutline />} ref={ref}>
-            <Dropdown.Item key='sorter' title=''>
-              <DrawerWrapper>
-                <div>
-                  {
-                    CannelData.map(
-                      (item) => {
-                        return (
-                          <NavLink key={item.cannelname}
-                            to={item.cannelname}
-                            className={classnames({ active: pathname == item.cannelname })}
-                            onClick={() => {
-                              ref.current.close()
-                            }}
-                          >
-                            <span>{item.ctitle}</span>
-                          </NavLink>
+      {loading &&
+        <>
+          <HeaderMenu>
+            {items}
+            <DropdownWrapper>
+              <Dropdown arrow={<DownOutline />} ref={ref}>
+                <Dropdown.Item key='sorter' title=''>
+                  <DrawerWrapper>
+                    <div>
+                      {
+                        CannelData.map(
+                          (item) => {
+                            return (
+                              <NavLink key={item.cannelname}
+                                to={item.cannelname}
+                                className={classnames({ active: pathname == item.cannelname })}
+                                onClick={() => {
+                                  ref.current.close()
+                                }}
+                              >
+                                <span>{item.ctitle}</span>
+                              </NavLink>
+                            )
+                          }
                         )
                       }
-                    )
-                  }
-                </div>
-                <i className="iconfont general_pullup_s" onClick={() => {
-                  ref.current.close()
-                }}></i>
-              </DrawerWrapper>
-            </Dropdown.Item>
-          </Dropdown>
-        </DropdownWrapper>
-      </HeaderMenu>
-      {/* 二级路由 */}
-      <ChildCannel />
+                    </div>
+                    <i className="iconfont general_pullup_s" onClick={() => {
+                      ref.current.close()
+                    }}></i>
+                  </DrawerWrapper>
+                </Dropdown.Item>
+              </Dropdown>
+            </DropdownWrapper>
+          </HeaderMenu>
+          {/* 二级路由 */}
+          <ChildCannel />
+        </>
+      }
     </>
   )
 }

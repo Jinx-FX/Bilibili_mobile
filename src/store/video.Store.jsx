@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { getVideosListRequest, getMMDListRequest, getMADListRequest, getFourCardListRequest }
+  from '@/api/request'
 
 const videoStore = createSlice({
   name: 'videoStore',
@@ -7,15 +9,41 @@ const videoStore = createSlice({
     enterLoading: true
   },
   reducers: {
-    getV (state, videos) {
+    setVideos (state, videos) {
       state.videos = videos.payload
       state.enterLoading = false
     }
   }
 })
 
-const { getV } = videoStore.actions
-const reducer = videoStore.reducer
+const { setVideos } = videoStore.actions
 
-export { getV }
-export default reducer
+const getVideosList = () => {
+  return async (dispatch) => {
+    const { data } = await getVideosListRequest()
+    dispatch(setVideos([...data]))
+  }
+}
+
+const getMMDList = () => {
+  return async (dispatch) => {
+    const { data } = await getMMDListRequest()
+    dispatch(setVideos([...data]))
+  }
+}
+const getMADList = () => {
+  return async (dispatch) => {
+    const { data } = await getMADListRequest()
+    dispatch(setVideos([...data]))
+  }
+}
+
+const getFourCardList = () => {
+  return async (dispatch) => {
+    const { data } = await getFourCardListRequest()
+    dispatch(setVideos([...data]))
+  }
+}
+
+export { getVideosList, getMMDList, getMADList, getFourCardList }
+export default videoStore.reducer

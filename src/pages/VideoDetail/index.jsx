@@ -2,8 +2,7 @@ import { memo } from "react"
 import { VideoWrapper, AppBtnWrapper } from './style'
 import videoFace from '@/assets/images/common/videoStand.jpg'
 import VideoInfo from './VideoInfo'
-// import TabPart from "./Tabs"
-// import VerticalInfinityLoop from "@/components/VerticalInfinityLoop"
+import TabPart from "./TabPart"
 
 function VideoDetail () {
   return (
@@ -16,14 +15,11 @@ function VideoDetail () {
           <div className="icon popup"></div>
           <div className="container">
             <div className="btn-text">打开App，流畅又高清</div>
-            <div className="btn-text">
-              {/* <VerticalInfinityLoop /> */}
-            </div>
           </div>
         </div>
       </AppBtnWrapper>
       <VideoInfo />
-      {/* <TabPart /> */}
+      <TabPart />
     </div>
   )
 }

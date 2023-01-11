@@ -22,14 +22,19 @@ function CannelBar () {
     }
     const cannelItems = () => {
       return (
-        <Tabs activeKey={pathname.match(/^\/\w+/)}>
+        <Tabs
+          activeKey={pathname.match(/^\/\w+/) === null ? '/home' : pathname.match(/^\/\w+/)}
+        >
           {CannelData.map(item => {
             // NavLink 会给所选路由加个active，以便所选路由可视化
             return (<Tabs.Tab
               title={
                 <NavLink
                   to={item.cannelname}
-                  className={classnames({ active: pathname.includes(item.cannelname) })}
+                  className={classnames({
+                    active: pathname.includes(item.cannelname) ||
+                      (pathname === '/' && item.cannelname === '/home')
+                  })}
                 >
                   <span>{item.ctitle}</span>
                 </NavLink>}

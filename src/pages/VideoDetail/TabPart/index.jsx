@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { Tabs, Swiper } from 'antd-mobile'
 import { TabsWrapper } from './style'
-import RecommendPart from '../RecommendPart'
-import CommentsPart from '../CommentsPart'
+import RecommendPart from './RecommendPart'
+import CommentsPart from './CommentsPart'
 
 const tabItems = [
   { key: 'recommendPart', title: '相关推荐' },
@@ -30,7 +30,6 @@ const TabPart = () => {
         </Tabs>
         <Swiper
           direction='horizontal'
-          loop
           indicator={() => null}
           ref={swiperRef}
           defaultIndex={activeIndex}

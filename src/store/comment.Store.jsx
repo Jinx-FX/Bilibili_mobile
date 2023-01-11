@@ -10,14 +10,25 @@ const commentStore = createSlice({
     setComment (state, commentList) {
       state.commentList = commentList.payload
     },
-    // * 点赞改变未实现
-    // commentChangeLike (state, rpi) {
-    //   // state.commentList = 
-    // }
+    // * 点赞改变
+    commentChangeLike (state, rpid) {
+      state.commentList.map(comment => {
+        if (comment.rpid === rpid.payload) {
+          if (!comment.action) {
+            comment.action++
+            comment.like++
+          }
+          else {
+            comment.action--
+            comment.like--
+          }
+        }
+      })
+    }
   }
 })
 
-const { setComment } = commentStore.actions
+const { setComment, commentChangeLike } = commentStore.actions
 
 const getCommentsList = () => {
   return async (dispatch) => {
@@ -26,5 +37,5 @@ const getCommentsList = () => {
   }
 }
 
-export { getCommentsList }
+export { getCommentsList, commentChangeLike }
 export default commentStore.reducer

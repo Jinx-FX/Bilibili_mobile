@@ -1,7 +1,10 @@
 import { CommentWrapper } from './style'
 import { NumberFormat, timestampToTime } from '@/utils'
+import { commentChangeLike } from '@/store/comment.Store'
+import { useDispatch } from 'react-redux'
 
 function CommentItem ({ comment }) {
+  const dispatch = useDispatch()
   const {
     rpid,
     member: { uname, avatar },
@@ -24,7 +27,7 @@ function CommentItem ({ comment }) {
           <div className="user">
             <span className="name">{uname}</span>
             <span className="like"
-            // onClick={() => dispatch(commentChangeLike(rpi))}
+              onClick={() => dispatch(commentChangeLike(rpid))}
             >
               <i className="iconfont like2" />
 

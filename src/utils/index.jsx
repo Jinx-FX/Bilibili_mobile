@@ -75,16 +75,41 @@ export const addSearchHistory = (value) => {
   const search_history = {
     value: value, isHistory: 1, timestamp: date.getTime()
   }
-  const oldData = window.localStorage.getItem('search_history') ? window.localStorage.getItem('search_history') : '[]'
+  const oldData =
+    window.localStorage.getItem('search_history') ?
+      window.localStorage.getItem('search_history') : '[]'
   const newData = JSON.parse(oldData)
   const res = newData.filter(item => item.value !== search_history.value)
   window.localStorage.setItem("search_history",
     JSON.stringify([search_history, ...res])
   )
 }
+
 export const getSearchHistory = () => {
   return JSON.parse(window.localStorage.getItem('search_history'))
 }
 export const removeSearchHistory = () => {
   window.localStorage.removeItem("search_history")
+}
+
+
+export const debounce = (func, delay) => {
+  let timer
+  return function (...args) {
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+      func.apply(this, args)
+      clearTimeout(timer)
+    }, delay)
+  }
+}
+
+export const getName = list => {
+  let str = ""
+  list.map((item, index) => {
+    str += index === 0 ? item.name : "/" + item.name
+    return item
+  })
 }

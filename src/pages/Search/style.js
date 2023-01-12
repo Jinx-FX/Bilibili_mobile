@@ -46,6 +46,7 @@ export const ShortcutWrapper = styled.div`
         padding-left: 3.2vw;
         background: #f4f4f4;
         padding-top: 1vw;
+        max-height: 50vh;
         li {
             height: 11.73333vw;
             line-height: 11.73333vw;

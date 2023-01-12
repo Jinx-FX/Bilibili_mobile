@@ -40,3 +40,7 @@
 - https://juejin.cn/post/7122484811360534558
 - https://juejin.cn/post/7113588048922673183
 - https://juejin.cn/post/7124197279598116871
+
+# Security
+
+[![Security Status](https://www.murphysec.com/platform3/v3/badge/1612453652342550529.svg?t=1)](https://www.murphysec.com/accept?code=7d1cbc85842ac5612491dfa77ed6ea86&type=1&from=2&t=2)
